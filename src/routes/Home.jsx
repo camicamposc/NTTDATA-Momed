@@ -2,6 +2,9 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 //import { Navigate } from "react-router-dom";
 import { UserContext } from "../context/UserProvider";
+import Button from "../components/Button";
+import Input from "../components/Input";
+import "./Home.css";
 
 const Home = () => {
   const { user } = useContext(UserContext);
@@ -48,36 +51,42 @@ const Home = () => {
 
   return (
     <>
-      <h1>Home</h1>
-      <h2>{user ? "online" : "offline"}</h2>
-
-      <form onSubmit={handleSubmit}>
-        <input
+      {/* <h2>{user ? "online" : "offline"}</h2> */}
+      <form className="form" onSubmit={handleSubmit}>
+        <h1>PROYECTO MOMED</h1>
+        <div className="group">
+        <Input
           type="email"
           placeholder="Usuario"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-
-        <input
+        </div>
+        <div className="group">
+        <Input
           type="password"
           placeholder="Contraseña"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <label>
+        </div>
+        <div className="group-two">
+          <div class="group-checkbox">
           <input
             type="checkbox"
             checked={checked}
             onChange={() => setChecked(!checked)}
           />
-          <p>Recordarme</p>
-        </label>
+          <label for="recuerdame">Recordarme</label>
+          </div>
+          <div>
         <button type="reset" onClick={handleForgotPassword}>
           Recuperar contraseña
-        </button>
+  button      </button>
+        </div>
+        </div>
 
-        <button type="submit">Iniciar sesión</button>
+        <Button type="submit">Iniciar sesión</Button>
       </form>
     </>
   );
