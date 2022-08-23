@@ -6,7 +6,6 @@ import "./style.css";
 const Summary = () => {
 
   const { professionals, process } = useContext(DataContext);
-
   const [searchProfessional, setSearchProfessional] = useState([]);
   const [listNames, setListNames] = useState([]);
   const [infoTable, setInfoTable] = useState();
@@ -34,10 +33,10 @@ const Summary = () => {
     const newPro = [...professionals];
     const detail = newPro.filter((profesional) => { return profesional.name === name })
     setInfoProfessional(detail)
-    console.log(detail[0].id)// CAMBIAR
+    // console.log(detail[0].id)// CAMBIAR
     const newInfo = [...process];
     const aportes = newInfo.filter((profesional) => { return profesional.id === detail[0].id })
-    console.log(aportes[0].detail) // CAMBIAR
+    // console.log(aportes[0].detail) // CAMBIAR
     setInfoTable(aportes[0].detail)
   }
 
