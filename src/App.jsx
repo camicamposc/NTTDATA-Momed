@@ -21,6 +21,7 @@ const App = () => {
   }
   return (
     <>
+    {/* <div className="App"> */}
       <SetData>
         <Navbar></Navbar>
         <Routes>
@@ -60,6 +61,7 @@ const App = () => {
           ></Route>
         </Routes>
       </SetData>
+      {/* </div> */}
     </>
   );
 };
