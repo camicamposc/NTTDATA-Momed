@@ -1,22 +1,22 @@
-import React, { useState, useContext, useEffect } from 'react'
-import { DataContext } from '../context/DataContext';
-import Visor from '../components/Visor/Visor'
-
+import React, { useState, useContext, useEffect } from "react";
+import { DataContext } from "../context/DataContext";
+import Visor from "../components/Visor/Visor";
+import PageTemplate from "./Template";
+// import PageTemplate from "../components/template/template";
 
 const Profesionales = () => {
-
   const { getProfessionals, getProcess } = useContext(DataContext);
-
 
   useEffect(() => {
     getProcess();
     getProfessionals();
   }, []);
 
-
   return (
     <>
-      <Visor />
+      <PageTemplate> 
+        <Visor></Visor>
+      </PageTemplate>
     </>
   );
 };
