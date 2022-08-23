@@ -12,7 +12,7 @@ const Home = () => {
 
   const { loginUser, forgotPassword } = useContext(UserContext);
 
-  const navegate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,7 +20,7 @@ const Home = () => {
     try {
       await loginUser(email, password, checked);
       console.log("Sesión iniciada correctamente");
-      navegate("/dashboard");
+      navigate("/profesionales");
     } catch (error) {
       console.log(error);
     }
@@ -30,7 +30,7 @@ const Home = () => {
     try {
       console.log(email);
       await forgotPassword(email);
-      navegate("/");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
