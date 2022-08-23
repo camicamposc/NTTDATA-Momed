@@ -5,12 +5,12 @@ import { UserContext } from "../context/UserProvider";
 
 const Navbar = () => {
   const { user, signOutUser } = useContext(UserContext);
-  const navegate = useNavigate();
+  const navigate = useNavigate();
 
   const handleClickLogout = async () => {
     try {
       await signOutUser();
-      navegate("/");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
