@@ -1,0 +1,71 @@
+
+  section.cont-table{
+    border: 1px solid #ddd;
+    border-radius: 10px; 
+    overflow: hidden; 
+  }
+  table{
+    width: 100%;
+    border-collapse: collapse;
+  }
+  table thead{
+    border-radius: 20px;
+  }
+  table thead th {
+    background-color: #344054;
+    color: #ffffff;
+    padding: 10px 0;
+    font-weight: 300;
+  }
+  table tbody tr{
+    border-bottom: 1px solid #ddd;
+  }
+  table tbody tr:last-child{
+    border-bottom: none;
+  }
+  table thead th,
+  table tbody td{
+    text-align: left;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  table thead th p{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+  table tbody td .actions{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  /* table tbody td .actions a, */
+  table tbody td .actions button
+  {
+    color: #344054;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+  table tbody td .estatus > span{
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: gray;
+    border-radius: 50%;
+  }
+  table tbody td .estatus{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  table tbody td .estatus > span.enproceso{
+    background: orange;
+  }
+  table tbody td .estatus > span.facturado{
+    background: green;
+  }
