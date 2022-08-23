@@ -1,21 +1,22 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { DataContext } from '../context/DataContext';
-import Search from '../components/Search/Search';
+import Visor from '../components/Visor/Visor'
+
 
 const Profesionales = () => {
 
-  const { professional, getProfessional, process, getProcess } = useContext(DataContext)
+  const { getProfessionals, getProcess } = useContext(DataContext);
+
 
   useEffect(() => {
     getProcess();
-    getProfessional();
-  }, [])
+    getProfessionals();
+  }, []);
+
 
   return (
     <>
-
-      <h1>Profesionales</h1>
-      <Search />
+      <Visor />
     </>
   );
 };

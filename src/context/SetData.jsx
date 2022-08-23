@@ -4,30 +4,22 @@ import axios from 'axios'
 
 export const SetData = ({ children }) => {
     const [process, setProcess] = useState([]);
-    const [professional, setProfessional] = useState([]);
-
+    const [professionals, setProfessionals] = useState([]);
 
     const getProcess = async () => {
-
         const response = await axios.get('https://62f128b8e2bca93cd245887b.mockapi.io/api/professional-process/');
-        console.log(response.data)
         return setProcess(response.data)
-
     }
 
-    const getProfessional = async () => {
-
+    const getProfessionals = async () => {
         const response = await axios.get('https://62f128b8e2bca93cd245887b.mockapi.io/api/professional/');
-
-        return setProfessional(response.data)
-
+        return setProfessionals(response.data)
     }
-
 
     return (
         <DataContext.Provider value={{
             process,
-            getProcess, professional, getProfessional
+            getProcess, professionals, getProfessionals
         }}>
             {children}
         </DataContext.Provider>
