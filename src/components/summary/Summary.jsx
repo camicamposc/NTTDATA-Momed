@@ -10,6 +10,7 @@ const Summary = () => {
   const [searchProfessional, setSearchProfessional] = useState([]);
   const [listNames, setListNames] = useState([]);
   const [infoTable, setInfoTable] = useState();
+  const [infoTableTemp, setInfoTableTemp] = useState();
   const [infoProfessional, setInfoProfessional] = useState();
 
   const handleSearch = (event) => {
@@ -20,6 +21,7 @@ const Summary = () => {
     } else {
       const queryMatch = professionals.filter((pro) => pro.name.toLowerCase().includes(event))
       setListNames(queryMatch)
+      
     }
   };
 
@@ -39,9 +41,15 @@ const Summary = () => {
     const aportes = newInfo.filter((profesional) => { return profesional.id === detail[0].id })
     console.log(aportes[0].detail) // CAMBIAR
     setInfoTable(aportes[0].detail)
+    setInfoTableTemp(aportes[0].detail)
   }
 
-
+  const searchTable = (value) =>{
+    // infoTable
+    const queryMatch = infoTable.filter((pro) => pro.state.toLowerCase().includes(value.toLowerCase()))
+    console.log('queryMatch', queryMatch)
+    setInfoTableTemp(queryMatch)
+  }
   return (
     <>
       <h5>Resumen del profesional</h5>
@@ -73,7 +81,11 @@ const Summary = () => {
           </div>
         </ul>
       ))}
-      <Table infoTable={infoTable} infoProfessional={infoProfessional} />
+      {searchProfessional.length > 0 && (
+      <input type="search" placeholder="Buscador de Estado" name="search" onChange={(e) => { searchTable(e.target.value) }} />
+      )}
+
+      <Table infoTable={infoTableTemp} infoProfessional={infoProfessional} />
     </>
   );
 };
