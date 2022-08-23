@@ -12,6 +12,8 @@ import RequireAuth from "./components/RequireAuth";
 import { useContext } from "react";
 import { UserContext } from "./context/UserProvider";
 
+import { SetData } from "./context/SetData";
+
 const App = () => {
   const { user } = useContext(UserContext);
   if (user === false) {
@@ -19,45 +21,47 @@ const App = () => {
   }
   return (
     <>
-      <div className="App">
-      <Navbar></Navbar>
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
+    {/* <div className="App"> */}
+      <SetData>
+        <Navbar></Navbar>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
 
-        <Route
-          path="/dashboard"
-          element={
-            <RequireAuth>
-              <Dashboard />
-            </RequireAuth>
-          }
-        ></Route>
-        <Route
-          path="/aportes"
-          element={
-            <RequireAuth>
-              <Aportes />
-            </RequireAuth>
-          }
-        ></Route>
-        <Route
-          path="/mantenedores"
-          element={
-            <RequireAuth>
-              <Mantenedores />
-            </RequireAuth>
-          }
-        ></Route>
-        <Route
-          path="/profesionales"
-          element={
-            <RequireAuth>
-              <Profesionales />
-            </RequireAuth>
-          }
-        ></Route>
-      </Routes>
-      </div>
+          <Route
+            path="/dashboard"
+            element={
+              <RequireAuth>
+                <Dashboard />
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="/aportes"
+            element={
+              <RequireAuth>
+                <Aportes />
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="/mantenedores"
+            element={
+              <RequireAuth>
+                <Mantenedores />
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="/profesionales"
+            element={
+              <RequireAuth>
+                <Profesionales />
+              </RequireAuth>
+            }
+          ></Route>
+        </Routes>
+      </SetData>
+      {/* </div> */}
     </>
   );
 };

@@ -51,43 +51,45 @@ const Home = () => {
 
   return (
     <>
-      {/* <h2>{user ? "online" : "offline"}</h2> */}
-      <form className="form" onSubmit={handleSubmit}>
-        <h1>PROYECTO MOMED</h1>
-        <div className="group">
-        <Input
-          type="email"
-          placeholder="Usuario"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        </div>
-        <div className="group">
-        <Input
-          type="password"
-          placeholder="Contraseña"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        </div>
-        <div className="group-two">
-          <div class="group-checkbox">
-          <input
-            type="checkbox"
-            checked={checked}
-            onChange={() => setChecked(!checked)}
-          />
-          <label for="recuerdame">Recordarme</label>
+      <div className="App">
+        {/* <h2>{user ? "online" : "offline"}</h2> */}
+        <form className="form" onSubmit={handleSubmit}>
+          <h1>PROYECTO MOMED</h1>
+          <div className="group">
+            <Input
+              type="email"
+              placeholder="Usuario"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
-          <div>
-        <button type="reset" onClick={handleForgotPassword}>
-          Recuperar contraseña
-  button      </button>
-        </div>
-        </div>
+          <div className="group">
+            <Input
+              type="password"
+              placeholder="Contraseña"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="group-two">
+            <div class="group-checkbox">
+              <input
+                type="checkbox"
+                checked={checked}
+                onChange={() => setChecked(!checked)}
+              />
+              <label for="recuerdame">Recordarme</label>
+            </div>
+            <div>
+              <button type="reset" onClick={handleForgotPassword}>
+                Recuperar contraseña button{" "}
+              </button>
+            </div>
+          </div>
 
-        <Button type="submit">Iniciar sesión</Button>
-      </form>
+          <Button type="submit">Iniciar sesión</Button>
+        </form>
+      </div>
     </>
   );
 };
