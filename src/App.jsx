@@ -13,7 +13,6 @@ import { useContext } from "react";
 import { UserContext } from "./context/UserProvider";
 
 import { SetData } from "./context/SetData";
-import "./routes/Home.css";
 
 const App = () => {
   const { user } = useContext(UserContext);
