@@ -23,7 +23,7 @@ const App = () => {
     <>
     {/* <div className="App"> */}
       <SetData>
-        <Navbar></Navbar>
+        {/* <Navbar></Navbar> */}
         <Routes>
           <Route path="/" element={<Home />}></Route>
 
