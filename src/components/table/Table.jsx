@@ -1,31 +1,28 @@
-import React, { useRef } from 'react'
+//import React, { useRef } from "react";
 import "./style.css";
 // import { useReactToPrint, PrintContextConsumer, ReactToPrint } from "react-to-print";
 // import ComponentToPrint from '../PDF/ComponentToPrint'
-import { saveAs } from 'file-saver';
+import { saveAs } from "file-saver";
 
 const Table = ({ infoTable, infoProfessional }) => {
+  // const componentRef = useRef();
+  // const handlePrint = useReactToPrint({
+  //     content: () => componentRef.current,
+  // });
 
-
-    // const componentRef = useRef();
-    // const handlePrint = useReactToPrint({
-    //     content: () => componentRef.current,
-    // });
-    // var blob = new Blob(["Hello, world!"], { type: "text/plain;charset=utf-8" });
-    // saveAs(blob, "hello world.txt");
-    // console.log(blob)
+  const blob = new Blob([JSON.stringify(infoTable)], {
+    type: "text/plain;charset=utf-8",
+  });
+  saveAs(blob, "hello world.txt");
+  console.log(blob);
+  const handleModal = () => {
+    console.log(1);
+  };
+  
     const handleModal = () => {
         console.log(1)
     }
-    // const validation = (string) => {
-    //     // switch (string){
-    //     //     case "Facturado":
-    //     //         break 
-    // }
-
-
-
-    // }
+    
     if (infoTable) {
         return (
             <section className="cont-table">
@@ -132,6 +129,7 @@ const Table = ({ infoTable, infoProfessional }) => {
     }
 }
 export default Table
+
     // < a href = "mailto:maka.paredes@gmail.com?subject=Holi%20Maca%20Paredes" > ENVIAR</a >
     // let changeText = val.estado.toLowerCase().replace(" ", "");
     // < span class={ `circle ${setStatus}` }></span >
