@@ -81,13 +81,13 @@ const Home = () => {
               <label for="recuerdame">Recordarme</label>
             </div>
             <div>
-              <button type="reset" onClick={handleForgotPassword}>
+              <button className="btn-clear" type="reset" onClick={handleForgotPassword}>
                 Recuperar contraseña button{" "}
               </button>
             </div>
           </div>
 
-          <Button type="submit">Iniciar sesión</Button>
+          <Button className="btn" type="submit">Iniciar sesión</Button>
         </form>
       </div>
     </>
