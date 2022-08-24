@@ -1,10 +1,13 @@
 import NotView from "../components/not-view/NotView";
+import PageTemplate from "./Template";
 
 const Dashboard = () => {
   return (
     <>
-      <h1>Dashboard</h1>
-      <NotView />
+      <PageTemplate>
+        <h1>Dashboard</h1>
+        <NotView />
+      </PageTemplate>
     </>
   );
 };
