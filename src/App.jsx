@@ -13,7 +13,6 @@ import { useContext } from "react";
 import { UserContext } from "./context/UserProvider";
 
 import { SetData } from "./context/SetData";
-import "./routes/Home.css";
 
 const App = () => {
   const { user } = useContext(UserContext);
@@ -24,7 +23,7 @@ const App = () => {
     <>
     {/* <div className="App"> */}
       <SetData>
-        <Navbar></Navbar>
+        {/* <Navbar></Navbar> */}
         <Routes>
           <Route path="/" element={<Home />}></Route>
 

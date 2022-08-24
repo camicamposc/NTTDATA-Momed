@@ -1,7 +1,9 @@
 import { useState, useContext } from "react";
 import { DataContext } from '../../context/DataContext';
 import Table from '../table/Table'
+import ButtonAportes from "../Button-aportes/button-aportes";
 import "./style.css";
+import ButtonArriendos from "../Button-Arriendo";
 
 const Summary = () => {
 
@@ -52,7 +54,9 @@ const Summary = () => {
   return (
     <>
       <h5>Resumen del profesional</h5>
-      <input type="search" placeholder="Buscador" name="search" onChange={(e) => { handleSearch(e.target.value) }} />
+      <ButtonAportes>Aportes</ButtonAportes>
+      <ButtonArriendos>Arriendos</ButtonArriendos>
+      <input className="input-search" type="search" placeholder="Buscador" name="search" onChange={(e) => { handleSearch(e.target.value) }} />
       <ul style={{ listStyleType: "none", zIndex: "10", position: "absolute", backgroundColor: "red" }}>
         {listNames.map((professional) => {
           return <li className="sug" onClick={(e) => { displayDetails(e.target.outerText); displayTable(e.target.outerText) }}>
@@ -81,7 +85,7 @@ const Summary = () => {
         </ul>
       ))}
       {searchProfessional.length > 0 && (
-      <input type="search" placeholder="Buscador de Estado" name="search" onChange={(e) => { searchTable(e.target.value) }} />
+      <input className="input-search" type="search" placeholder="Buscador de Estado" name="search" onChange={(e) => { searchTable(e.target.value) }} />
       )}
 
       <Table infoTable={infoTableTemp} infoProfessional={infoProfessional} />
