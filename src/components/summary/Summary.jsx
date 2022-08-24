@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { DataContext } from '../../context/DataContext';
 import Table from '../table/Table'
 import "./style.css";
@@ -13,20 +13,65 @@ const Summary = () => {
   const [infoProfessional, setInfoProfessional] = useState();
 
   const handleSearch = (event) => {
+    let sortedProfessionals = [...professionals].sort((a, b) => {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    });
     if (event === "") {
       setListNames([]);
       setInfoTable([]);
       setSearchProfessional([]);
+      setInfoTableTemp([])
     } else {
-      const queryMatch = professionals.filter((pro) => pro.name.toLowerCase().includes(event))
-      setListNames(queryMatch)
-      
+      const inputs = event.split(",");
+      const matchNameOrId = sortedProfessionals.filter((pro) => pro.name.toLowerCase().includes(inputs[0]) || pro.id_pers_correl.toString().includes(inputs[0]));
+      const match = matchNameOrId.filter((pro) => pro.id_pers_correl.toString().includes(inputs[1]));
+
+      setListNames(matchNameOrId)
+      if (match.length > 0) {
+        setListNames(match)
+      } else {
+        setListNames(matchNameOrId)
+      }
+      console.log("si usa coma", matchNameOrId)
+      console.log("si no usa coma", match)
     }
-  };
+  }
+
+
+  // queryMatch.length = 10
+  // console.log(queryMatch)
+  // setListNames(queryMatch)
+  // const idSearch = professionals.filter((pro) => pro.id_pers_correl.toString().includes(query[1]) && pro.name.toLowerCase().includes(query[0]))
+
+  // console.log(idSearch)
+
+  // setSearchProfessional(idSearch)
+  // setListNames(idSearch)
+  // }
+  // console.log(typeof event)
+  // if (event === "") {
+  //   setListNames([]);
+  //   setInfoTable([]);
+  //   setSearchProfessional([]);
+  //   setInfoTableTemp([])
+  // } else {
+  //   const queryMatch = professionals.filter((pro) => pro.name.toLowerCase().includes(event))
+  //   console.log(queryMatch)
+  // setListNames(queryMatch)
+
+  // }
+
 
   const displayDetails = (name) => {
     const newPro = [...professionals];
     const detail = newPro.filter((profesional) => { return profesional.name === name })
+    console.log(detail)
     setSearchProfessional(detail)
     setListNames([])
   }
@@ -35,15 +80,14 @@ const Summary = () => {
     const newPro = [...professionals];
     const detail = newPro.filter((profesional) => { return profesional.name === name })
     setInfoProfessional(detail)
-    // console.log(detail[0].id)// CAMBIAR
     const newInfo = [...process];
     const aportes = newInfo.filter((profesional) => { return profesional.id === detail[0].id })
-    // console.log(aportes[0].detail) // CAMBIAR
     setInfoTable(aportes[0].detail)
     setInfoTableTemp(aportes[0].detail)
   }
 
-  const searchTable = (value) =>{
+  const searchTable = (value) => {
+
     // infoTable
     const queryMatch = infoTable.filter((pro) => pro.state.toLowerCase().includes(value.toLowerCase()))
     console.log('queryMatch', queryMatch)
@@ -81,7 +125,7 @@ const Summary = () => {
         </ul>
       ))}
       {searchProfessional.length > 0 && (
-      <input type="search" placeholder="Buscador de Estado" name="search" onChange={(e) => { searchTable(e.target.value) }} />
+        <input type="search" placeholder="Buscador de Estado" name="search" onChange={(e) => { searchTable(e.target.value) }} />
       )}
 
       <Table infoTable={infoTableTemp} infoProfessional={infoProfessional} />

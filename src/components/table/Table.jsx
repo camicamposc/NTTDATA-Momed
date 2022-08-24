@@ -11,9 +11,9 @@ const Table = ({ infoTable, infoProfessional }) => {
     // const handlePrint = useReactToPrint({
     //     content: () => componentRef.current,
     // });
-    var blob = new Blob(["Hello, world!"], { type: "text/plain;charset=utf-8" });
-    saveAs(blob, "hello world.txt");
-    console.log(blob)
+    // var blob = new Blob(["Hello, world!"], { type: "text/plain;charset=utf-8" });
+    // saveAs(blob, "hello world.txt");
+    // console.log(blob)
     const handleModal = () => {
         console.log(1)
     }
@@ -112,7 +112,7 @@ const Table = ({ infoTable, infoProfessional }) => {
                                     <td>{val.amount_gross}</td>
                                     <td>
                                         <div className="actions">
-                                            <button onClick={handlePrint}> {/*onClick={handlePrint}*/}
+                                            <button > {/*onClick={handlePrint}*/}
                                                 <span class="material-symbols-outlined">
                                                     description
                                                 </span>
