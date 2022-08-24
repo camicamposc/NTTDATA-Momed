@@ -4,10 +4,10 @@ import PageTemplate from "./Template";
 const Dashboard = () => {
   return (
     <>
-    <PageTemplate>
-      <h1>Dashboard</h1>
-    </PageTemplate>
-      <NotView />
+      <PageTemplate>
+        <h1>Dashboard</h1>
+        <NotView />
+      </PageTemplate>
     </>
   );
 };
