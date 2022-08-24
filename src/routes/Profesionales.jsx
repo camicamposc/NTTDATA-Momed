@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { DataContext } from '../context/DataContext';
 import Visor from '../components/Visor/Visor'
+import PageTemplate from './Template';
 
 
 const Profesionales = () => {
@@ -16,7 +17,9 @@ const Profesionales = () => {
 
   return (
     <>
+    <PageTemplate>
       <Visor />
+    </PageTemplate>
     </>
   );
 };
