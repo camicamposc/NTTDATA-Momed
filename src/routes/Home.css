@@ -46,6 +46,10 @@ main {
   margin-right: 15px;
 }
 
+.form .group-checkbox label {
+  font-size: 15px;
+}
+
 button.btn {
   background: #98a2b3;
   width: 100%;
@@ -61,6 +65,8 @@ button.btn-clear {
   background: transparent;
   color: #98a2b3;
   border: none;
+  text-decoration: underline;
+  font-size: 15px;
 }
 
 .input-search {
@@ -69,12 +75,10 @@ button.btn-clear {
   align-items: center;
   padding: 0px 18px;
   gap: 9px;
-border: none;
+  border: none;
   width: 261px;
   height: 36px;
 
   background: #ececec;
   border-radius: 54px;
 }
-
-

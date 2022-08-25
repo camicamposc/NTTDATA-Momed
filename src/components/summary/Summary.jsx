@@ -31,7 +31,7 @@ const Summary = () => {
       setInfoTableTemp([]);
     } else {
       const inputs = event.split(",");
-      const matchNameOrId = sortedProfessionals.filter(
+      let matchNameOrId = sortedProfessionals.filter(
         (pro) =>
           pro.name.toLowerCase().includes(inputs[0]) ||
           pro.nmro_ident.includes(inputs[0])
@@ -39,6 +39,7 @@ const Summary = () => {
       const match = matchNameOrId.filter((pro) =>
         pro.id_pers_correl.toString().includes(inputs[1])
       );
+      matchNameOrId.length = 6;
       setListNames(matchNameOrId);
       if (match.length > 0) {
         setListNames(match);
@@ -155,7 +156,13 @@ const Summary = () => {
             <ul className="">
               <li>
                 <span className="key">Fecha Ingreso: </span>
-                <span className="value">{data.date_admission}</span>
+                <span className="value">
+                  {data.date_admission
+                    .slice(0, 10)
+                    .split("-")
+                    .reverse()
+                    .join("/")}
+                </span>
               </li>
               <li>
                 <span className="key">Trayectoria: </span>
