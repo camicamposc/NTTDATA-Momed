@@ -10,7 +10,7 @@ const Summary = () => {
   const [searchProfessional, setSearchProfessional] = useState([]);
   const [listNames, setListNames] = useState([]);
   const [infoTable, setInfoTable] = useState();
-  const [infoTableTemp, setInfoTableTemp] = useState();
+  const [infoTableTemp, setInfoTableTemp] = useState([]);
   const [infoProfessional, setInfoProfessional] = useState();
 
   const handleSearch = (event) => {
