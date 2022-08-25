@@ -1,9 +1,9 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { DataContext } from "../../context/DataContext";
 import Table from "../table/Table";
 import ButtonAportes from "../Button-aportes/button-aportes";
-import "./style.css";
 import ButtonArriendos from "../Button-Arriendo";
+import "./style.css";
 
 const Summary = () => {
   const { professionals, process } = useContext(DataContext);
@@ -23,6 +23,7 @@ const Summary = () => {
       }
       return 0;
     });
+
     if (event === "") {
       setListNames([]);
       setInfoTable([]);
@@ -33,61 +34,32 @@ const Summary = () => {
       const matchNameOrId = sortedProfessionals.filter(
         (pro) =>
           pro.name.toLowerCase().includes(inputs[0]) ||
-          pro.id_pers_correl.toString().includes(inputs[0])
+          pro.nmro_ident.includes(inputs[0])
       );
       const match = matchNameOrId.filter((pro) =>
         pro.id_pers_correl.toString().includes(inputs[1])
       );
-
       setListNames(matchNameOrId);
       if (match.length > 0) {
         setListNames(match);
       } else {
         setListNames(matchNameOrId);
       }
-      console.log("si usa coma", matchNameOrId);
-      console.log("si no usa coma", match);
     }
   };
 
-  // queryMatch.length = 10
-  // console.log(queryMatch)
-  // setListNames(queryMatch)
-  // const idSearch = professionals.filter((pro) => pro.id_pers_correl.toString().includes(query[1]) && pro.name.toLowerCase().includes(query[0]))
-
-  // console.log(idSearch)
-
-  // setSearchProfessional(idSearch)
-  // setListNames(idSearch)
-  // }
-  // console.log(typeof event)
-  // if (event === "") {
-  //   setListNames([]);
-  //   setInfoTable([]);
-  //   setSearchProfessional([]);
-  //   setInfoTableTemp([])
-  // } else {
-  //   const queryMatch = professionals.filter((pro) => pro.name.toLowerCase().includes(event))
-  //   console.log(queryMatch)
-  // setListNames(queryMatch)
-
-  // }
-
-  const displayDetails = (name) => {
-    console.log("DETALE ", name);
+  const displayDetails = (pro) => {
     const newPro = [...professionals];
     const detail = newPro.filter((profesional) => {
-      return profesional.name === name;
+      return profesional.name === pro.name;
     });
-    console.log(detail);
     setSearchProfessional(detail);
     setListNames([]);
   };
-
-  const displayTable = (name) => {
+  const displayTable = (pro) => {
     const newPro = [...professionals];
     const detail = newPro.filter((profesional) => {
-      return profesional.name === name;
+      return profesional.name === pro.name;
     });
     setInfoProfessional(detail);
     const newInfo = [...process];
@@ -99,13 +71,12 @@ const Summary = () => {
   };
 
   const searchTable = (value) => {
-    // infoTable
     const queryMatch = infoTable.filter((pro) =>
       pro.state.toLowerCase().includes(value.toLowerCase())
     );
-    console.log("queryMatch", queryMatch);
     setInfoTableTemp(queryMatch);
   };
+
   return (
     <>
       <div class="align-title-search">
@@ -127,6 +98,7 @@ const Summary = () => {
       )}
       <ButtonAportes>Aportes</ButtonAportes>
       <ButtonArriendos>Arriendos</ButtonArriendos>
+
       <ul
         class="sugerencia-listado"
         style={{ listStyleType: "none", zIndex: "10", position: "absolute" }}
@@ -136,41 +108,48 @@ const Summary = () => {
             <li
               className="sug"
               onClick={(e) => {
-                displayDetails(e.target.outerText);
-                displayTable(e.target.outerText);
+                displayDetails(professional);
+                displayTable(professional);
               }}
             >
               {professional.name}
+              <span> {`- ${professional.nmro_ident}`}</span>
             </li>
           );
         })}
       </ul>
+
       {searchProfessional.map((data) => (
         <div className="row listado-profesional">
           <div className="col">
             <ul className="">
               <li>
-                <span className="key"> Fecha Ingreso:</span>{" "}
-                <span className="value">{data.date_admission}</span>
+                <span className="key"> Nombre:</span>{" "}
+                <span className="value">{data.name}</span>
               </li>
               <li>
-                <span className="key">Trayectoria:</span>
-                <span className="value">{data.time_elapsed}</span>
+                <span className="key">N° Identidad:</span>
+                <span className="value">{data.nmro_ident}</span>
               </li>
               <li>
-                <span className="key">Tipo de Contrato:</span>{" "}
-                <span className="value">{data.contract_type}</span>
+                <span className="key">ID:</span>{" "}
+                <span className="value">{data.id_pers_correl}</span>
               </li>
               <li>
-                <span className="key">CANTIDAD DE BOLETAS:</span>{" "}
-                <span className="value">{infoTable.length}</span>
+                <span className="key">Mail:</span>{" "}
+                <span className="value">{data.email}</span>
               </li>
               <li>
-                <span className="key">Monto Total Aportes:</span>{" "}
-                <span className="value">{data.amount_tickets}</span>
+                <span className="key">Departamento:</span>{" "}
+                <span className="value">{data.departament}</span>
+              </li>
+              <li>
+                <span className="key">Estado:</span>{" "}
+                <span className="value">{data.state}</span>
               </li>
             </ul>
           </div>
+
           <div className="col">
             <ul className="">
               <li>
