@@ -7,7 +7,7 @@ const Visor = () => {
 
   return (
     <>
-      <h1>Visor de Aportes</h1>
+      
       <Summary />
 
     </>
