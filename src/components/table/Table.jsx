@@ -19,7 +19,7 @@ const Table = ({ infoTable, infoProfessional }) => {
     console.log(1);
   };
 
-  if (infoTable) {
+  // if (infoTable) {
     return (
       <section className="cont-table">
         <table>
@@ -85,8 +85,8 @@ const Table = ({ infoTable, infoProfessional }) => {
             </tr>
           </thead>
           <tbody>
-            {infoTable.map((val) => {
-              // let changeText = val.estado.toLowerCase().replace(" ", "");
+            {infoTable && infoTable.map((val) => {
+              let changeText = val.state.toLowerCase().replace(" ", "");
               return (
                 <tr onClick={handleModal}>
                   <td>{val.date.slice(0, 10)}</td>
@@ -94,8 +94,8 @@ const Table = ({ infoTable, infoProfessional }) => {
                   <td>{val.doc_hm}</td>
                   <td>{val.factor}</td>
                   <td>
-                    <div className="estatus">
-                      {val.state} <span></span>
+                    <div className="estatus ">
+                      {val.state} <span className={changeText}></span>
                     </div>
                   </td>
                   <td>{val.amount_contribution}</td>
@@ -111,9 +111,9 @@ const Table = ({ infoTable, infoProfessional }) => {
                       </button>
                       <button>
                         <a
-                          href={`mailto:${infoProfessional[0].email}?subject=Holi%20Maca%20Paredes`}
+                          href={`mailto:${infoProfessional[0].email}?subject=Resumen%20Profesional%20Prueba`}
                         >
-                          mail
+                          <span class="material-symbols-outlined">mail</span>
                         </a>
                       </button>
                     </div>
@@ -121,12 +121,15 @@ const Table = ({ infoTable, infoProfessional }) => {
                 </tr>
               );
             })}
+            <tr>
+              <td colSpan="7">No has realizado una búsqueda de arriendos aún.</td>
+            </tr>
           </tbody>
         </table>
       </section>
     );
   }
-};
+// };
 export default Table;
 
 // < a href = "mailto:maka.paredes@gmail.com?subject=Holi%20Maca%20Paredes" > ENVIAR</a >

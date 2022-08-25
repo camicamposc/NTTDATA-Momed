@@ -1,7 +1,7 @@
 section.section{
     background: white;
-    width: calc(100% - 280px);
-    margin-left: 280px;
+    width: calc(100% - 270px);
+    margin-left: 270px;
     position: absolute;
     top: 70px;
     height: calc(100vh - 70px);

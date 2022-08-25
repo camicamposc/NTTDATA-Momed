@@ -82,7 +82,7 @@ const Home = () => {
             </div>
             <div>
               <button className="btn-clear" type="reset" onClick={handleForgotPassword}>
-                Recuperar contraseña button{" "}
+                Recuperar contraseña
               </button>
             </div>
           </div>
