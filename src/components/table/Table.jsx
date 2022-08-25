@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { saveAs } from "file-saver";
 import "./style.css";
 import Pagination from "@mui/material/Pagination";
-import { Grid } from "@mui/material";
+import { alertTitleClasses, Grid } from "@mui/material";
 
-const Table = ({ infoTable, infoProfessional }) => {
+const Table = ({ infoTable, infoProfessional, searchProfessional }) => {
   const [modal, setModal] = useState(false);
   const [infoModal, setInfoModal] = useState([]);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [page, setPage] = React.useState(1);
+
+  const search = searchProfessional;
+  console.log(search)
+
+  useEffect(() => {
+		if (search.length === 0 ){
+			setPage(1)
+		}
+	}, [search])
 
   const handleSave = (e, selection) => {
     saveAs(selection.url_dte, `doc_hm_${selection.doc_hm}.pdf`);
@@ -19,10 +30,7 @@ const Table = ({ infoTable, infoProfessional }) => {
   };
   const handleCloseModal = () => {
     setModal(false);
-  };
-
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  const [page, setPage] = React.useState(1);
+  }; 
 
   const handleChangePage = (event, newPage) => {
     // console.log("buenas noches", newPage)
