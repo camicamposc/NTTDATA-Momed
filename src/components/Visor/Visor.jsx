@@ -25,7 +25,7 @@ export default Visor;
               <th>
                 <p>
                   Fecha{" "}
-                  <span class="material-symbols-outlined">
+                  <span className="material-symbols-outlined">
                     keyboard_arrow_down
                   </span>
                 </p>
@@ -33,7 +33,7 @@ export default Visor;
               <th>
                 <p>
                   Ámbito{" "}
-                  <span class="material-symbols-outlined">
+                  <span className="material-symbols-outlined">
                     keyboard_arrow_down
                   </span>
                 </p>
@@ -41,7 +41,7 @@ export default Visor;
               <th>
                 <p>
                   Doc. HM{" "}
-                  <span class="material-symbols-outlined">
+                  <span className="material-symbols-outlined">
                     keyboard_arrow_down
                   </span>
                 </p>
@@ -49,7 +49,7 @@ export default Visor;
               <th>
                 <p>
                   Factor{" "}
-                  <span class="material-symbols-outlined">
+                  <span className="material-symbols-outlined">
                     keyboard_arrow_down
                   </span>
                 </p>
@@ -57,7 +57,7 @@ export default Visor;
               <th>
                 <p>
                   Estado{" "}
-                  <span class="material-symbols-outlined">
+                  <span className="material-symbols-outlined">
                     keyboard_arrow_down
                   </span>
                 </p>
@@ -65,7 +65,7 @@ export default Visor;
               <th>
                 <p>
                   Monto Aporte{" "}
-                  <span class="material-symbols-outlined">
+                  <span className="material-symbols-outlined">
                     keyboard_arrow_down
                   </span>
                 </p>
@@ -73,7 +73,7 @@ export default Visor;
               <th>
                 <p>
                   Monto bruto{" "}
-                  <span class="material-symbols-outlined">
+                  <span className="material-symbols-outlined">
                     keyboard_arrow_down
                   </span>
                 </p>
@@ -93,7 +93,7 @@ export default Visor;
                     <td>
                       <div className="estatus">
                         {val.estado}{" "}
-                        <span class={`circle ${changeText}`}></span>
+                        <span className={`circle ${changeText}`}></span>
                       </div>
                     </td>
                     <td>$680.000</td>
@@ -101,12 +101,12 @@ export default Visor;
                     <td>
                       <div className="actions">
                         <button>
-                          <span class="material-symbols-outlined">
+                          <span className="material-symbols-outlined">
                             description
                           </span>
                         </button>
                         <button>
-                          <span class="material-symbols-outlined">mail</span>
+                          <span className="material-symbols-outlined">mail</span>
                         </button>
                       </div>
                     </td>

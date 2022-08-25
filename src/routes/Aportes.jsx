@@ -6,7 +6,7 @@ const Aportes = () => {
     <>
     <PageTemplate>
 
-      <h1>Aportes</h1>
+      {/* <h1>Aportes</h1> */}
       <NotView />
     </PageTemplate>
     </>

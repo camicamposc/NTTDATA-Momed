@@ -3,11 +3,12 @@ import Table from "../components/table/Table";
 import PageTemplate from "./Template";
 
 const Mantenedores = () => {
-  const infoTableTemp = []
+  const infoTableTemp = [];
   return (
     <>
       <PageTemplate>
-        <h1>Mantenedores</h1> 
+        {/* <h1>Mantenedores</h1>  */}
+        <NotView />
       </PageTemplate>
     </>
   );
