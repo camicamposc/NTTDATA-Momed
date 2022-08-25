@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router";
-//import { Navigate } from "react-router-dom";
+
 import { UserContext } from "../context/UserProvider";
 import Button from "../components/Button";
 import Input from "../components/Input";
@@ -52,7 +52,6 @@ const Home = () => {
   return (
     <>
       <div className="App">
-        {/* <h2>{user ? "online" : "offline"}</h2> */}
         <form className="form" onSubmit={handleSubmit}>
           <h1>PROYECTO MOMED</h1>
           <div className="group">
@@ -81,13 +80,19 @@ const Home = () => {
               <label for="recuerdame">Recordarme</label>
             </div>
             <div>
-              <button className="btn-clear" type="reset" onClick={handleForgotPassword}>
+              <button
+                className="btn-clear"
+                type="reset"
+                onClick={handleForgotPassword}
+              >
                 Recuperar contraseña
               </button>
             </div>
           </div>
 
-          <Button className="btn" type="submit">Iniciar sesión</Button>
+          <Button className="btn" type="submit">
+            Iniciar sesión
+          </Button>
         </form>
       </div>
     </>

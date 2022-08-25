@@ -1,10 +1,9 @@
-input.input{
-    background: white;
-    width: 100%;
-    height: 55px;
-    border-radius: 10px;
-    border: 0px;
-    padding: 0 10px;
-    box-sizing: border-box;
-    /* outline: none; */
-  }
+input.input {
+  background: white;
+  width: 100%;
+  height: 55px;
+  border-radius: 10px;
+  border: 0px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}

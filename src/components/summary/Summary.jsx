@@ -16,34 +16,38 @@ const Summary = () => {
 
   const handleSearch = (event) => {
     setInput(event);
-    console.log(searchProfessional);
-    let sortedProfessionals = [...professionals].sort((a, b) => {
-      if (a.name < b.name) {
-        return -1;
-      }
-      if (a.name > b.name) {
-        return 1;
-      }
-      return 0;
-    });
-    const inputs = event.split(",");
-    let matchNameOrId = sortedProfessionals.filter(
-      (pro) =>
-        pro.name.toLowerCase().includes(inputs[0]) ||
-        pro.name.toUpperCase().includes(inputs[0]) ||
-        pro.nmro_ident
-          .replaceAll(".", "")
-          .includes(inputs[0].replaceAll(".", ""))
-    );
-    const match = matchNameOrId.filter((pro) =>
-      pro.id_pers_correl.toString().includes(inputs[1])
-    );
-    matchNameOrId.length = 6;
-    setListNames(matchNameOrId);
-    if (match.length > 0) {
-      setListNames(match);
+    if (event === "") {
+      setListNames([]);
     } else {
+      console.log(searchProfessional);
+      let sortedProfessionals = [...professionals].sort((a, b) => {
+        if (a.name < b.name) {
+          return -1;
+        }
+        if (a.name > b.name) {
+          return 1;
+        }
+        return 0;
+      });
+      const inputs = event.split(",");
+      let matchNameOrId = sortedProfessionals.filter(
+        (pro) =>
+          pro.name.toLowerCase().includes(inputs[0]) ||
+          pro.name.toUpperCase().includes(inputs[0]) ||
+          pro.nmro_ident
+            .replaceAll(".", "")
+            .includes(inputs[0].replaceAll(".", ""))
+      );
+      const match = matchNameOrId.filter((pro) =>
+        pro.id_pers_correl.toString().includes(inputs[1])
+      );
+      matchNameOrId.length = 6;
       setListNames(matchNameOrId);
+      if (match.length > 0) {
+        setListNames(match);
+      } else {
+        setListNames(matchNameOrId);
+      }
     }
   };
 
@@ -175,7 +179,7 @@ const Summary = () => {
                 <span className="value">{data.contract_type}</span>
               </li>
               <li>
-                <span className="key">Cantidad de boletas: </span>
+                <span className="key">Cantidad de Boletas: </span>
                 <span className="value">{infoTable.length} </span>
               </li>
               <li>
@@ -211,82 +215,3 @@ const Summary = () => {
   );
 };
 export default Summary;
-
-// const filterCustom = (toSearch) => {
-//   let result = data.filter(
-//     (o) => o.idProfesional.includes(toSearch) || o.nombre.includes(toSearch)
-//   );
-//   return result;
-// };
-// let toSearch = event.target.value.split(",");
-// let dataSearch = []
-// toSearch.map((val) => {
-//   if (val.trim() != '') {
-//     dataSearch = dataSearch.concat(filterCustom(val.trim()));
-//   }
-// });
-{
-  /* <input type="text" placeholder="busqueda" onChange={(e) => { query(e.target.value); }} /> */
-}
-// onClick = {(e) => { displayDetails(e.target.outerText); displayTable(e.target.outerText) }}
-
-{
-  /* <div className="row">
-        <div className="col">
-          <ul>
-            <li>
-              <span className="key">Nombre:</span>
-              <span className="value">Pedro</span>
-            </li>
-            <li>
-              <span className="key">N° Ident:</span>
-              <span className="value">1899939</span>
-            </li>
-            <li>
-              <span className="key">ID:</span>
-              <span className="value">129219</span>
-            </li>
-            <li>
-              <span className="key">Mail:</span>
-              <span className="value">pepi@gmail.com</span>
-            </li>
-            <li>
-              <span className="key">Departamento:</span>
-              <span className="value">Mi casa</span>
-            </li>
-            <li>
-              <span className="key">Estado:</span>
-              <span className="value">Acreditado</span>
-            </li>
-          </ul>
-        </div>
-        <div className="col">
-          <ul>
-            <li>
-              <span className="key">Nombre:</span>
-              <span className="value">Pedro</span>
-            </li>
-            <li>
-              <span className="key">N° Ident:</span>
-              <span className="value">1899939</span>
-            </li>
-            <li>
-              <span className="key">ID:</span>
-              <span className="value">129219</span>
-            </li>
-            <li>
-              <span className="key">Mail:</span>
-              <span className="value">pepi@gmail.com</span>
-            </li>
-            <li>
-              <span className="key">Departamento:</span>
-              <span className="value">Mi casa</span>
-            </li>
-            <li>
-              <span className="key">Estado:</span>
-              <span className="value">Acreditado</span>
-            </li>
-          </ul>
-        </div>
-      </div> */
-}
