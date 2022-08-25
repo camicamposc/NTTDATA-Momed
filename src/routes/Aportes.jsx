@@ -4,11 +4,9 @@ import PageTemplate from "./Template";
 const Aportes = () => {
   return (
     <>
-    <PageTemplate>
-
-      {/* <h1>Aportes</h1> */}
-      <NotView />
-    </PageTemplate>
+      <PageTemplate>
+        <NotView />
+      </PageTemplate>
     </>
   );
 };

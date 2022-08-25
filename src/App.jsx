@@ -17,16 +17,16 @@ import { SetData } from "./context/SetData";
 const App = () => {
   const { user } = useContext(UserContext);
   if (user === false) {
-    return <div class="loader">
-      <div class="custom-loader"></div>
-      <p>Cargando...</p>;
+    return (
+      <div class="loader">
+        <div class="custom-loader"></div>
+        <p>Cargando...</p>;
       </div>
+    );
   }
   return (
     <>
-    {/* <div className="App"> */}
       <SetData>
-        {/* <Navbar></Navbar> */}
         <Routes>
           <Route path="/" element={<Home />}></Route>
 
@@ -64,7 +64,6 @@ const App = () => {
           ></Route>
         </Routes>
       </SetData>
-      {/* </div> */}
     </>
   );
 };

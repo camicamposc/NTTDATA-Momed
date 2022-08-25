@@ -7,7 +7,6 @@ const Mantenedores = () => {
   return (
     <>
       <PageTemplate>
-        {/* <h1>Mantenedores</h1>  */}
         <NotView />
       </PageTemplate>
     </>
