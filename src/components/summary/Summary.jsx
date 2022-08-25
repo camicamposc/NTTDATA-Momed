@@ -12,8 +12,12 @@ const Summary = () => {
   const [infoTable, setInfoTable] = useState();
   const [infoTableTemp, setInfoTableTemp] = useState([]);
   const [infoProfessional, setInfoProfessional] = useState();
+  const [input, setInput] = useState();
 
   const handleSearch = (event) => {
+
+    setInput(event)
+    console.log(searchProfessional)
     let sortedProfessionals = [...professionals].sort((a, b) => {
       if (a.name < b.name) {
         return -1;
@@ -23,29 +27,21 @@ const Summary = () => {
       }
       return 0;
     });
-
-    if (event === "") {
-      setListNames([]);
-      setInfoTable([]);
-      setSearchProfessional([]);
-      setInfoTableTemp([]);
+    const inputs = event.split(",");
+    let matchNameOrId = sortedProfessionals.filter(
+      (pro) =>
+        pro.name.toLowerCase().includes(inputs[0]) ||
+        pro.nmro_ident.includes(inputs[0])
+    );
+    const match = matchNameOrId.filter((pro) =>
+      pro.id_pers_correl.toString().includes(inputs[1])
+    );
+    matchNameOrId.length = 6;
+    setListNames(matchNameOrId);
+    if (match.length > 0) {
+      setListNames(match);
     } else {
-      const inputs = event.split(",");
-      let matchNameOrId = sortedProfessionals.filter(
-        (pro) =>
-          pro.name.toLowerCase().includes(inputs[0]) ||
-          pro.nmro_ident.includes(inputs[0])
-      );
-      const match = matchNameOrId.filter((pro) =>
-        pro.id_pers_correl.toString().includes(inputs[1])
-      );
-      matchNameOrId.length = 6;
       setListNames(matchNameOrId);
-      if (match.length > 0) {
-        setListNames(match);
-      } else {
-        setListNames(matchNameOrId);
-      }
     }
   };
 
@@ -56,6 +52,7 @@ const Summary = () => {
     });
     setSearchProfessional(detail);
     setListNames([]);
+    setInput([])
   };
   const displayTable = (pro) => {
     const newPro = [...professionals];
@@ -83,6 +80,7 @@ const Summary = () => {
       <div className="align-title-search">
         <h1>Visor de Aportes</h1>
         <input
+          value={input}
           className="input-search"
           type="search"
           placeholder="Buscar"
@@ -151,7 +149,6 @@ const Summary = () => {
               </li>
             </ul>
           </div>
-
           <div className="col">
             <ul className="">
               <li>
@@ -196,7 +193,6 @@ const Summary = () => {
           }}
         />
       </div>
-
       <Table infoTable={infoTableTemp} infoProfessional={infoProfessional} />
     </>
   );
