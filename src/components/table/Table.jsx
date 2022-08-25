@@ -1,26 +1,26 @@
-//import React, { useRef } from "react";
-import "./style.css";
-// import { useReactToPrint, PrintContextConsumer, ReactToPrint } from "react-to-print";
-// import ComponentToPrint from '../PDF/ComponentToPrint'
+import React, { useState } from "react";
 import { saveAs } from "file-saver";
+import "./style.css";
 
 const Table = ({ infoTable, infoProfessional }) => {
-  // const componentRef = useRef();
-  // const handlePrint = useReactToPrint({
-  //     content: () => componentRef.current,
-  // });
+  const [modal, setModal] = useState(false);
+  const [infoModal, setInfoModal] = useState([]);
 
-  //   const blob = new Blob([JSON.stringify(infoTable)], {
-  //     type: "text/plain;charset=utf-8",
-  //   });
-  //   saveAs(blob, "hello world.txt");
-  //   console.log(blob);
-  const handleModal = () => {
-    console.log(1);
+  const handleSave = (e, selection) => {
+    saveAs(selection.url_dte, `doc_hm_${selection.doc_hm}.pdf`);
+  };
+  const handleModal = (e, selection) => {
+    if (e.target.nodeName != "SPAN") {
+      setModal(true);
+      setInfoModal(selection);
+    }
+  };
+  const handleCloseModal = () => {
+    setModal(false);
   };
 
-  // if (infoTable) {
-    return (
+  return (
+    <>
       <section className="cont-table">
         <table>
           <thead>
@@ -85,53 +85,93 @@ const Table = ({ infoTable, infoProfessional }) => {
             </tr>
           </thead>
           <tbody>
-            {infoTable && infoTable.map((val) => {
-              let changeText = val.state.toLowerCase().replace(" ", "");
-              return (
-                <tr onClick={handleModal}>
-                  <td>{val.date.slice(0, 10)}</td>
-                  <td>{val.ambit}</td>
-                  <td>{val.doc_hm}</td>
-                  <td>{val.factor}</td>
-                  <td>
-                    <div className="estatus ">
-                      {val.state} <span className={changeText}></span>
-                    </div>
-                  </td>
-                  <td>{val.amount_contribution}</td>
-                  <td>{val.amount_gross}</td>
-                  <td>
-                    <div className="actions">
-                      <button>
-                        {" "}
-                        {/*onClick={handlePrint}*/}
-                        <span class="material-symbols-outlined">
-                          description
-                        </span>
-                      </button>
-                      <button>
-                        <a
-                          href={`mailto:${infoProfessional[0].email}?subject=Resumen%20Profesional%20Prueba`}
+            {infoTable &&
+              infoTable.map((val) => {
+                let changeText = val.state.toLowerCase().replace(" ", "");
+                return (
+                  <tr
+                    onClick={(e) => {
+                      handleModal(e, val);
+                    }}
+                  >
+                    <td>
+                      {val.date.slice(0, 10).split("-").reverse().join("/")}
+                    </td>{" "}
+                    <td>{val.ambit}</td>
+                    <td>{val.doc_hm}</td>
+                    <td>{val.factor}</td>
+                    <td>
+                      <div className="estatus ">
+                        {val.state} <span className={changeText}></span>
+                      </div>
+                    </td>
+                    <td>{val.amount_contribution}</td>
+                    <td>{val.amount_gross}</td>
+                    <td>
+                      <div className="actions">
+                        <button
+                          onClick={(e) => {
+                            handleSave(e.target, val);
+                          }}
                         >
-                          <span class="material-symbols-outlined">mail</span>
-                        </a>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              );
-            })}
+                          {" "}
+                          <span class="material-symbols-outlined">
+                            description
+                          </span>
+                        </button>
+                        <button>
+                          <a
+                            href={`mailto:${infoProfessional[0].email}?subject=Resumen%20Profesional%20Prueba`}
+                          >
+                            <span class="material-symbols-outlined">mail</span>
+                          </a>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
             <tr>
-              <td colSpan="7">No has realizado una búsqueda de arriendos aún.</td>
+              <td colSpan="7">
+                No has realizado una búsqueda de arriendos aún.
+              </td>
             </tr>
           </tbody>
         </table>
       </section>
-    );
-  }
-// };
-export default Table;
+      {modal && (
+        <>
+          <button onClick={handleCloseModal}>X</button>
+          <div>
+            <li>Nombre: {infoProfessional[0].name}</li>
+            <li>Nº Identidad:{infoProfessional[0].nmro_ident}</li>
+            <li>ID {infoProfessional[0].id_pers_correl}</li>
+            <li>Mail {infoProfessional[0].email}</li>
+            <li>Departamento {infoProfessional[0].department}</li>
+            <li>Estado {infoProfessional[0].state}</li>
+          </div>
+          <div>
+            <li>Fecha Ingreso {infoProfessional[0].date_admission}</li>
+            <li>Trayectoria {infoProfessional[0].time_elapsed}</li>
+            <li>Tipo de Contrato {infoProfessional[0].contract_type}</li>
+            {/* <li>CANTIDAD DE BOLETAS {infoTable[0].length} </li> */}
+            <li>Monto Total Aportes {infoProfessional[0].amount_tickets}</li>
+          </div>
+          <div>
+            {JSON.stringify(infoModal)}
+            {/* {infoModal.date.slice(0, 10)} */}
 
-// < a href = "mailto:maka.paredes@gmail.com?subject=Holi%20Maca%20Paredes" > ENVIAR</a >
-// let changeText = val.estado.toLowerCase().replace(" ", "");
-// < span class={ `circle ${setStatus}` }></span >
+            {/* {infoModal.ambit}
+          {infoModal.doc_hm}
+          {infoModal.state}
+          {infoModal.factor}
+          {infoModal.amount_contribution}
+          {infoModal.amount_gross} */}
+          </div>
+        </>
+      )}
+    </>
+  );
+};
+
+export default Table;
