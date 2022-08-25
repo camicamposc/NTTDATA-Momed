@@ -47,60 +47,25 @@ const Table = ({ infoTable, infoProfessional, searchProfessional }) => {
             <thead>
               <tr>
                 <th>
-                  <p>
-                    Fecha{" "}
-                    <span className="material-symbols-outlined">
-                      keyboard_arrow_down
-                    </span>
-                  </p>
+                  <p>Fecha </p>
                 </th>
                 <th>
-                  <p>
-                    Ámbito{" "}
-                    <span className="material-symbols-outlined">
-                      keyboard_arrow_down
-                    </span>
-                  </p>
+                  <p>Ámbito </p>
                 </th>
                 <th>
-                  <p>
-                    Doc. HM{" "}
-                    <span className="material-symbols-outlined">
-                      keyboard_arrow_down
-                    </span>
-                  </p>
+                  <p>Doc. HM </p>
                 </th>
                 <th>
-                  <p>
-                    Factor{" "}
-                    <span className="material-symbols-outlined">
-                      keyboard_arrow_down
-                    </span>
-                  </p>
+                  <p>Factor </p>
                 </th>
                 <th>
-                  <p>
-                    Estado{" "}
-                    <span className="material-symbols-outlined">
-                      keyboard_arrow_down
-                    </span>
-                  </p>
+                  <p>Estado </p>
                 </th>
                 <th>
-                  <p>
-                    Monto Aporte{" "}
-                    <span className="material-symbols-outlined">
-                      keyboard_arrow_down
-                    </span>
-                  </p>
+                  <p>Monto Aporte </p>
                 </th>
                 <th>
-                  <p>
-                    Monto bruto{" "}
-                    <span className="material-symbols-outlined">
-                      keyboard_arrow_down
-                    </span>
-                  </p>
+                  <p>Monto Bruto </p>
                 </th>
                 <th> </th>
               </tr>
@@ -177,6 +142,7 @@ const Table = ({ infoTable, infoProfessional, searchProfessional }) => {
               <button className="closeW" onClick={handleCloseModal}>
                 X
               </button>
+              <h2 class="title-modal"> ANEXO APORTE POR ACCESO CLC</h2>
               <ul className="modalAttributes">
                 <li className="fileModal">
                   <span className="key"> Nombre:</span>{" "}
@@ -235,7 +201,7 @@ const Table = ({ infoTable, infoProfessional, searchProfessional }) => {
                   </span>
                 </li>
                 <li className="fileModal">
-                  <span className="key"> Cantidad de boletas:</span>{" "}
+                  <span className="key"> Cantidad de Boletas:</span>{" "}
                   <span className="value">{infoTable.length}</span>
                 </li>
                 <li className="fileModal">

@@ -17,7 +17,10 @@ import { SetData } from "./context/SetData";
 const App = () => {
   const { user } = useContext(UserContext);
   if (user === false) {
-    return <p>Loading...</p>;
+    return <div class="loader">
+      <div class="custom-loader"></div>
+      <p>Cargando...</p>;
+      </div>
   }
   return (
     <>
