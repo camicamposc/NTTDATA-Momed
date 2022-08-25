@@ -14,9 +14,10 @@
     display: flex;
     justify-content: space-between;
     font-size: 14px;
+    padding-bottom: 5px;
   }
   .row ul li .key{
-    width: 180px; 
+    width: 178px !important; 
     font-weight: bold; 
   }
   .row ul li .value{
@@ -26,7 +27,12 @@
     color: green;
     text-transform: uppercase;
   }
-   
+  .col.first ul li .key{
+    width: 140px !important;
+  }
+  .col.first{
+    width: 44%
+  }
   .col{
     width: 50%
   }
@@ -37,6 +43,7 @@
     border: 1px solid #ddd;
     border-radius: 10px; 
     overflow: hidden; 
+    overflow-x: auto;
   }
   table{
     width: 100%;
@@ -98,4 +105,22 @@
   }
   table tbody td .estatus > span.facturado{
     background: green;
+  }
+
+  /* BUSCADOR */
+
+  .group-input-icon {
+    position: relative;
+  }
+
+  .group-input-icon:before {
+    position: absolute;
+    content: "search";
+    font-family:  'Material Symbols Outlined';
+    z-index: 3;
+    top: 8px;
+    left: 15px;
+  }
+  .group-input-icon input{
+    padding-left: 40px;
   }
