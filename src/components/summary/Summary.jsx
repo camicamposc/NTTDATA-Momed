@@ -15,9 +15,8 @@ const Summary = () => {
   const [input, setInput] = useState();
 
   const handleSearch = (event) => {
-
-    setInput(event)
-    console.log(searchProfessional)
+    setInput(event);
+    console.log(searchProfessional);
     let sortedProfessionals = [...professionals].sort((a, b) => {
       if (a.name < b.name) {
         return -1;
@@ -52,7 +51,7 @@ const Summary = () => {
     });
     setSearchProfessional(detail);
     setListNames([]);
-    setInput([])
+    setInput([]);
   };
   const displayTable = (pro) => {
     const newPro = [...professionals];
@@ -78,9 +77,10 @@ const Summary = () => {
   return (
     <>
       <div className="align-title-search">
-        <h1>Visor de Aportes</h1> 
+        <h1>Visor de Aportes</h1>
         <div className="group-input-icon">
           <input
+            input={input}
             className="input-search"
             type="search"
             placeholder="Buscar"
@@ -89,7 +89,7 @@ const Summary = () => {
               handleSearch(e.target.value);
             }}
           />
-        </div> 
+        </div>
       </div>
 
       <h5 className="subtitle">Resumen del profesional</h5>
@@ -113,7 +113,9 @@ const Summary = () => {
                   displayTable(professional);
                 }}
               >
-                {professional.name}{' - '}{professional.nmro_ident}
+                {professional.name}
+                {" - "}
+                {professional.nmro_ident}
               </li>
             );
           })}
@@ -196,8 +198,12 @@ const Summary = () => {
         </div>
       </div>
 
-      <Table infoTable={infoTableTemp} infoProfessional={infoProfessional} searchProfessional={searchProfessional} />
-
+      <Table
+        infoTable={infoTableTemp}
+        setInfoTableTemp={setInfoTableTemp}
+        infoProfessional={infoProfessional}
+        searchProfessional={searchProfessional}
+      />
     </>
   );
 };

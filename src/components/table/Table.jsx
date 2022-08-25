@@ -4,20 +4,37 @@ import "./style.css";
 import Pagination from "@mui/material/Pagination";
 import { alertTitleClasses, Grid } from "@mui/material";
 
-const Table = ({ infoTable, infoProfessional, searchProfessional }) => {
+const Table = ({
+  setInfoTableTemp,
+  infoTable,
+  infoProfessional,
+  searchProfessional,
+}) => {
   const [modal, setModal] = useState(false);
   const [infoModal, setInfoModal] = useState([]);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [page, setPage] = React.useState(1);
 
-  const search = searchProfessional;
-  console.log(search)
-
   useEffect(() => {
-		if (search.length === 0 ){
-			setPage(1)
-		}
-	}, [search])
+    if (searchProfessional.length === 0) {
+      setPage(1);
+    }
+  }, [searchProfessional]);
+
+  const sortedTable = () => {
+    let sortInfoTable = [...infoTable].sort((a, b) => {
+      if (a.state < b.state) {
+        return -1;
+      }
+      if (a.state > b.state) {
+        return 1;
+      }
+      return 0;
+    });
+
+    console.log(sortInfoTable);
+    setInfoTableTemp(sortInfoTable);
+  };
 
   const handleSave = (e, selection) => {
     saveAs(selection.url_dte, `doc_hm_${selection.doc_hm}.pdf`);
@@ -30,7 +47,7 @@ const Table = ({ infoTable, infoProfessional, searchProfessional }) => {
   };
   const handleCloseModal = () => {
     setModal(false);
-  }; 
+  };
 
   const handleChangePage = (event, newPage) => {
     // console.log("buenas noches", newPage)
@@ -46,8 +63,11 @@ const Table = ({ infoTable, infoProfessional, searchProfessional }) => {
           <table>
             <thead>
               <tr>
-                <th>
+                <th onClick={sortedTable}>
                   <p>Fecha </p>
+                  <span className="material-symbols-outlined">
+                    keyboard_arrow_down
+                  </span>
                 </th>
                 <th>
                   <p>Ámbito </p>
