@@ -82,15 +82,17 @@ const Summary = () => {
     <>
       <div className="align-title-search">
         <h1>Visor de Aportes</h1>
-        <input
-          className="input-search"
-          type="search"
-          placeholder="Buscar"
-          name="search"
-          onChange={(e) => {
-            handleSearch(e.target.value);
-          }}
-        />
+        <div className="group-input-icon">
+          <input
+            className="input-search"
+            type="search"
+            placeholder="Buscar"
+            name="search"
+            onChange={(e) => {
+              handleSearch(e.target.value);
+            }}
+          />
+        </div>
       </div>
 
       <h5 className="subtitle">Resumen del profesional</h5>
@@ -99,31 +101,30 @@ const Summary = () => {
       )}
       <ButtonAportes>Aportes</ButtonAportes>
       <ButtonArriendos>Arriendos</ButtonArriendos>
-
-      <ul
-        className="sugerencia-listado"
-        style={{ listStyleType: "none", zIndex: "10", position: "absolute" }}
-      >
-        {listNames.map((professional, index) => {
-          return (
-            <li
-              key={index}
-              className="sug"
-              onClick={(e) => {
-                displayDetails(professional);
-                displayTable(professional);
-              }}
-            >
-              {professional.name}
-              <span> {`- ${professional.nmro_ident}`}</span>
-            </li>
-          );
-        })}
-      </ul>
-
+      {listNames.length > 0 && (
+        <ul
+          className="sugerencia-listado"
+          style={{ listStyleType: "none", zIndex: "10", position: "absolute" }}
+        >
+          {listNames.map((professional, index) => {
+            return (
+              <li
+                key={index}
+                className="sug"
+                onClick={(e) => {
+                  displayDetails(professional);
+                  displayTable(professional);
+                }}
+              >
+                {professional.name}{' - '}{professional.nmro_ident}
+              </li>
+            );
+          })}
+        </ul>
+      )}
       {searchProfessional.map((data, index) => (
         <div key={index} className="row listado-profesional">
-          <div className="col">
+          <div className="col first">
             <ul className="">
               <li>
                 <span className="key"> Nombre:</span>{" "}
@@ -186,15 +187,17 @@ const Summary = () => {
       ))}
 
       <div className="align-right">
-        <input
-          className="input-search"
-          type="search"
-          placeholder="Buscar"
-          name="search"
-          onChange={(e) => {
-            searchTable(e.target.value);
-          }}
-        />
+        <div className="group-input-icon">
+          <input
+            className="input-search"
+            type="search"
+            placeholder="Buscar"
+            name="search"
+            onChange={(e) => {
+              searchTable(e.target.value);
+            }}
+          />
+        </div>
       </div>
 
       <Table infoTable={infoTableTemp} infoProfessional={infoProfessional} />
