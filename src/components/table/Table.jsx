@@ -16,7 +16,7 @@ const Table = ({
   const [page, setPage] = React.useState(1);
 
   useEffect(() => {
-    if (searchProfessional.length === 0) {
+    if (searchProfessional.length > 0) {
       setPage(1);
     }
   }, [searchProfessional]);

@@ -1,7 +1,7 @@
 section.cont-table {
   border: 1px solid #ddd;
   border-radius: 10px;
-  overflow: hidden; 
+  overflow: hidden;
 }
 table {
   width: 100%;
@@ -32,55 +32,53 @@ table tbody td {
   padding-bottom: 10px;
 }
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table thead {
+  border-radius: 20px;
+}
 
-  table{
-    width: 100%;
-    border-collapse: collapse;
-  }
-  table thead{
-    border-radius: 20px;
-  }
-  
-  table thead th p{
-    padding: 0;
-    margin: 0;
-    display: flex;
-    align-items: center;
-  }
-  table tbody td .actions{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px !important;
-    margin-right: 10px !important;
-  }
-  /* table tbody td .actions a, */
-  table tbody td .actions button
-  {
-    color: #344054;
-    border: 0;
-    padding: 0;
-    background: transparent;
-    cursor: pointer;
-  }
-  table tbody td .actions button a{
-    color: #344054;
-  }
-  table tbody td .estatus > span{
-    display: block;
-    width: 15px;
-    height: 15px;
-    background: gray;
-    border-radius: 50%;
-    margin-left: 0px;
-  }
-  table tbody td .estatus{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-    width: 114px;
-  }
+table thead th p {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+table tbody td .actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px !important;
+  margin-right: 10px !important;
+}
+/* table tbody td .actions a, */
+table tbody td .actions button {
+  color: #344054;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+table tbody td .actions button a {
+  color: #344054;
+}
+table tbody td .estatus > span {
+  display: block;
+  width: 15px;
+  height: 15px;
+  background: gray;
+  border-radius: 50%;
+  margin-left: 0px;
+}
+table tbody td .estatus {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  width: 114px;
+}
 
 table thead th p {
   padding: 0;
@@ -140,7 +138,7 @@ table tbody td .estatus > span.pendiente {
   margin: 130px 30px 200px 200px;
   background: #fff;
   width: 60%;
-  height: 350px;
+  height: 400px;
   position: absolute;
   box-shadow: 2px 5px 10px 2px rgba(0, 5, 0, 0.5);
   border-radius: 8px;
@@ -151,16 +149,15 @@ table tbody td .estatus > span.pendiente {
 .modalAttributes {
   list-style: none;
 }
-.modalAttributes li{
+.modalAttributes li {
   display: flex;
   gap: 10px;
 }
-.title-modal{
+.title-modal {
   text-align: center;
   margin: 0;
   margin-bottom: 20px;
   font-size: 20px;
-
 }
 
 .key {
@@ -188,31 +185,29 @@ table tbody td .estatus > span.pendiente {
 
 .fileModal {
   padding: 3px;
-} 
+}
 
-.content{
+.content {
   position: relative;
 }
-.css-r93niq-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected{
+.css-r93niq-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
   color: #475467 !important;
   border-color: #475467 !important;
   background: transparent !important;
-
 }
-.css-r93niq-MuiButtonBase-root-MuiPaginationItem-root.Mui-disabled{
-  background: #DEDEDE !important;
-  color: #98A2B3 !important; 
-  border-color: #DEDEDE !important;
+.css-r93niq-MuiButtonBase-root-MuiPaginationItem-root.Mui-disabled {
+  background: #dedede !important;
+  color: #98a2b3 !important;
+  border-color: #dedede !important;
 }
-.MuiPaginationItem-previousNext.css-r93niq-MuiButtonBase-root-MuiPaginationItem-root{
+.MuiPaginationItem-previousNext.css-r93niq-MuiButtonBase-root-MuiPaginationItem-root {
   background: #475467 !important;
   border-color: #475467 !important;
   color: white !important;
-
 }
 nav.MuiPagination-root.MuiPagination-outlined.css-1oj2twp-MuiPagination-root {
   margin-bottom: 30px;
 }
-.css-r93niq-MuiButtonBase-root-MuiPaginationItem-root{
+.css-r93niq-MuiButtonBase-root-MuiPaginationItem-root {
   border-radius: 8px !important;
 }
