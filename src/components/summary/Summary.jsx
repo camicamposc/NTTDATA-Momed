@@ -165,7 +165,7 @@ const Summary = () => {
                 <span className="value">{data.contract_type}</span>
               </li>
               <li>
-                <span className="key">CANTIDAD DE BOLETAS: </span>
+                <span className="key">Cantidad de boletas: </span>
                 <span className="value">{infoTable.length} </span>
               </li>
               <li>
