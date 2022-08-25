@@ -1,78 +1,77 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;700&display=swap'); 
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;700&display=swap");
 
-body, html, *{
-  font-family: 'Montserrat', sans-serif;
+body,
+html,
+* {
+  font-family: "Montserrat", sans-serif;
   margin: 0;
 }
 
-body{
+body {
   margin: 0;
 }
 
-.sugerencia-listado{ 
+.sugerencia-listado {
   list-style: none;
   padding: 0px 0px 8px;
-  width: 396px; 
-  background: #FFFFFF;
+  width: 396px;
+  background: #ffffff;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
-  
 }
 
-.sugerencia-listado li{
+.sugerencia-listado li {
   padding: 1rem;
   vertical-align: middle;
   display: flex;
   align-items: center;
   position: relative;
 }
-.sugerencia-listado li:after{
+.sugerencia-listado li:after {
   /* content: "e7fd";
   font-family:  'Material Symbols Outlined';
   position: absolute;
   left: 5px;
   top: 10px; */
-
-
 }
-.sugerencia-listado li:hover{
+.sugerencia-listado li:hover {
   background: #98a2b3;
 }
-h5.subtitle{
+h5.subtitle {
   text-decoration: underline;
 }
-.align-title-search{
+.align-title-search {
   display: flex;
   gap: 20px;
-  margin-top:28px;
+  margin-top: 28px;
   margin-bottom: 15px;
 }
 
-.align-right{
+.align-right {
   display: flex;
   align-items: flex-end;
   justify-content: end;
   width: 100%;
   margin-bottom: 15px;
 }
-.listado-profesional{
+.listado-profesional {
   margin-top: 25px;
   margin-bottom: 15px;
 }
 
-.listado-profesional{
+.listado-profesional {
   list-style-type: none;
   padding: 0;
 }
 
-.listado-profesional li{
+.listado-profesional li {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
-.listado-profesional li .key{
-  width: 180px; 
-  font-weight: bold; 
+.listado-profesional li .key {
+  width: 180px;
+  font-weight: bold;
 }
-.listado-profesional li .value{
-  width: 250px; 
+.listado-profesional li .value {
+  width: 250px;
 }
