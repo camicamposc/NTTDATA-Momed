@@ -17,21 +17,25 @@ body {
   width: 396px;
   background: #ffffff;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+ 
+  top: 85px;
+  left: 251px;
 }
+  
 
-.sugerencia-listado li {
+.sugerencia-listado li { 
   padding: 1rem;
   vertical-align: middle;
   display: flex;
-  align-items: center;
   position: relative;
-}
-.sugerencia-listado li:after {
-  /* content: "e7fd";
+  padding-left: 45px;
+} 
+.sugerencia-listado li:after{
+  content: "person";
   font-family:  'Material Symbols Outlined';
   position: absolute;
-  left: 5px;
-  top: 10px; */
+  left: 16px;
+  top: 16px;
 }
 .sugerencia-listado li:hover {
   background: #98a2b3;
@@ -74,4 +78,12 @@ h5.subtitle {
 }
 .listado-profesional li .value {
   width: 250px;
+}
+
+.align-center{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - 80px);
+  flex-direction: column;
 }

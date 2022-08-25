@@ -22,6 +22,10 @@
   .row ul li .value{
     width: 250px; 
   }
+  .row ul li .value.green{
+    color: green;
+    text-transform: uppercase;
+  }
    
   .col{
     width: 50%
@@ -88,11 +92,7 @@
     background: gray;
     border-radius: 50%;
   }
-  table tbody td .estatus{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+
   table tbody td .estatus > span.enproceso{
     background: orange;
   }

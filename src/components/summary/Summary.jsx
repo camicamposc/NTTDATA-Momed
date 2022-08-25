@@ -79,12 +79,12 @@ const Summary = () => {
 
   return (
     <>
-      <div class="align-title-search">
+      <div className="align-title-search">
         <h1>Visor de Aportes</h1>
         <input
           className="input-search"
           type="search"
-          placeholder="Buscador"
+          placeholder="Buscar"
           name="search"
           onChange={(e) => {
             handleSearch(e.target.value);
@@ -92,7 +92,7 @@ const Summary = () => {
         />
       </div>
 
-      <h5 class="subtitle">Resumen del profesional</h5>
+      <h5 className="subtitle">Resumen del profesional</h5>
       {searchProfessional.length === 0 && (
         <p>No has realizado una búsqueda de aportes aún.</p>
       )}
@@ -100,12 +100,13 @@ const Summary = () => {
       <ButtonArriendos>Arriendos</ButtonArriendos>
 
       <ul
-        class="sugerencia-listado"
+        className="sugerencia-listado"
         style={{ listStyleType: "none", zIndex: "10", position: "absolute" }}
       >
-        {listNames.map((professional) => {
+        {listNames.map((professional, index) => {
           return (
             <li
+              key={index}
               className="sug"
               onClick={(e) => {
                 displayDetails(professional);
@@ -119,8 +120,8 @@ const Summary = () => {
         })}
       </ul>
 
-      {searchProfessional.map((data) => (
-        <div className="row listado-profesional">
+      {searchProfessional.map((data, index) => (
+        <div key={index} className="row listado-profesional">
           <div className="col">
             <ul className="">
               <li>
@@ -141,11 +142,11 @@ const Summary = () => {
               </li>
               <li>
                 <span className="key">Departamento:</span>{" "}
-                <span className="value">{data.departament}</span>
+                <span className="value">{data.department}</span>
               </li>
               <li>
                 <span className="key">Estado:</span>{" "}
-                <span className="value">{data.state}</span>
+                <span className="value green">{data.state}</span>
               </li>
             </ul>
           </div>

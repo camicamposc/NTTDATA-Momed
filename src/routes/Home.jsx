@@ -72,7 +72,7 @@ const Home = () => {
             />
           </div>
           <div className="group-two">
-            <div class="group-checkbox">
+            <div className="group-checkbox">
               <input
                 type="checkbox"
                 checked={checked}
