@@ -51,7 +51,7 @@ const Navbar = () => {
               <li>
                 <button onClick={handleClickLogout}>
                   <span class="material-symbols-outlined">logout</span>
-                  Logout
+                  Cerrar sesión
                 </button>
               </li>
             </ul>

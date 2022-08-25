@@ -202,7 +202,7 @@ const Summary = () => {
         <input
           className="input-search"
           type="search"
-          placeholder="Buscador de Estado"
+          placeholder="Buscar"
           name="search"
           onChange={(e) => {
             searchTable(e.target.value);
