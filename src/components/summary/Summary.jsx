@@ -193,7 +193,9 @@ const Summary = () => {
           }}
         />
       </div>
-      <Table infoTable={infoTableTemp} infoProfessional={infoProfessional} />
+
+      <Table infoTable={infoTableTemp} infoProfessional={infoProfessional} searchProfessional={searchProfessional} />
+
     </>
   );
 };
