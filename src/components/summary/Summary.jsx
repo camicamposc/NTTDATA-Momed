@@ -31,7 +31,9 @@ const Summary = () => {
       (pro) =>
         pro.name.toLowerCase().includes(inputs[0]) ||
         pro.name.toUpperCase().includes(inputs[0]) ||
-        pro.nmro_ident.replaceAll('.','').includes(inputs[0].replaceAll('.',''))
+        pro.nmro_ident
+          .replaceAll(".", "")
+          .includes(inputs[0].replaceAll(".", ""))
     );
     const match = matchNameOrId.filter((pro) =>
       pro.id_pers_correl.toString().includes(inputs[1])
