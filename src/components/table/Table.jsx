@@ -63,7 +63,7 @@ const Table = ({
           <table>
             <thead>
               <tr>
-                <th onClick={sortedTable}>
+                <th className="thTable" onClick={sortedTable}>
                   <p>Fecha </p>
                   <span className="material-symbols-outlined">
                     keyboard_arrow_down
@@ -231,18 +231,7 @@ const Table = ({
                   </span>
                 </li>
               </ul>
-              <div>
-                {/* {JSON.stringify(infoModal)} */}
-
-                {/* {infoModal.date.slice(0, 10)} */}
-
-                {/* {infoModal.ambit}
-          {infoModal.doc_hm}
-          {infoModal.state}
-          {infoModal.factor}
-          {infoModal.amount_contribution}
-          {infoModal.amount_gross} */}
-              </div>
+              <div></div>
             </div>
           </>
         )}

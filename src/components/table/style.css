@@ -211,3 +211,7 @@ nav.MuiPagination-root.MuiPagination-outlined.css-1oj2twp-MuiPagination-root {
 .css-r93niq-MuiButtonBase-root-MuiPaginationItem-root {
   border-radius: 8px !important;
 }
+
+.thTable {
+  display: flex;
+}
