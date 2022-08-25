@@ -30,6 +30,11 @@ aside ul li button{
   gap: 10px;
   font-size: 18px;
   border: none;
+  
+}
+aside ul.bottom li button{
+  margin: 0 auto;
+  text-align: center;
 }
 
 aside ul li span{
