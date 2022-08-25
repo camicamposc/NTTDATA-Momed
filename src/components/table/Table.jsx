@@ -50,7 +50,6 @@ const Table = ({
   };
 
   const handleChangePage = (event, newPage) => {
-    // console.log("buenas noches", newPage)
     setPage(newPage);
   };
 

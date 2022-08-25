@@ -56,7 +56,7 @@ table tbody td .actions {
   gap: 30px !important;
   margin-right: 10px !important;
 }
-/* table tbody td .actions a, */
+
 table tbody td .actions button {
   color: #344054;
   border: 0;
@@ -95,7 +95,7 @@ table tbody td .actions {
   justify-content: center;
   gap: 20px;
 }
-/* table tbody td .actions a, */
+
 table tbody td .actions button {
   color: #344054;
   border: 0;
