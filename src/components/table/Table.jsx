@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { saveAs } from "file-saver";
 import "./style.css";
+import Pagination from '@mui/material/Pagination';
+import { Grid } from '@mui/material';
+
 
 const Table = ({ infoTable, infoProfessional }) => {
   const [modal, setModal] = useState(false);
@@ -18,6 +21,16 @@ const Table = ({ infoTable, infoProfessional }) => {
   const handleCloseModal = () => {
     setModal(false);
   };
+
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [page, setPage] = React.useState(1);
+
+  const handleChangePage = (event, newPage) => {
+    // console.log("buenas noches", newPage)
+    setPage(newPage)
+  }
+
+  const count = Object.keys(infoTable).length
 
   return (
     <>
@@ -86,7 +99,9 @@ const Table = ({ infoTable, infoProfessional }) => {
           </thead>
           <tbody>
             {infoTable &&
-              infoTable.map((val) => {
+              infoTable
+              .slice((page * rowsPerPage) - rowsPerPage, (page * rowsPerPage + rowsPerPage) - rowsPerPage)
+              .map((val) => {
                 let changeText = val.state.toLowerCase().replace(" ", "");
                 return (
                   <tr
@@ -139,6 +154,20 @@ const Table = ({ infoTable, infoProfessional }) => {
           </tbody>
         </table>
       </section>
+      <Grid className="mt-3 mb-3 mr-3"
+          container
+          justify="flex-end"
+          alignItems="flex-end">
+          <Pagination
+            variant="outlined"
+            count={Math.ceil(count / rowsPerPage)}
+            rowsPerPage={rowsPerPage}
+            color="primary"
+            shape="rounded"
+            page={page}
+            onChange={handleChangePage}
+          />
+        </Grid>
       {modal && (
         <>
           <button onClick={handleCloseModal}>X</button>
