@@ -156,8 +156,8 @@ const Table = ({ infoTable, infoProfessional }) => {
       </section>
       <Grid className="mt-3 mb-3 mr-3"
           container
-          justify="flex-end"
-          alignItems="flex-end">
+          justify="end"
+          alignItems="flex-end" style={{justifyContent: 'end', margin: '20px 0'}}>
           <Pagination
             variant="outlined"
             count={Math.ceil(count / rowsPerPage)}

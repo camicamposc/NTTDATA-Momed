@@ -84,7 +84,7 @@ const Summary = () => {
         <input
           className="input-search"
           type="search"
-          placeholder="Buscador"
+          placeholder="Buscar"
           name="search"
           onChange={(e) => {
             handleSearch(e.target.value);

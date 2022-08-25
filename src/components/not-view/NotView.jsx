@@ -1,8 +1,10 @@
 const NotView = () => {
   return (
     <>
-      <span class="material-symbols-outlined">sentiment_dissatisfied</span>
+    <div className="align-center">
+      <span style={{fontSize: '120px', color: "#dedede"}} class="material-symbols-outlined">sentiment_dissatisfied</span>
       <p>No hay gráficos disponibles</p>
+    </div>
     </>
   );
 };
