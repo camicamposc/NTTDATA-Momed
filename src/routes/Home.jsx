@@ -1,7 +1,10 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router";
-//import { Navigate } from "react-router-dom";
+
 import { UserContext } from "../context/UserProvider";
+import Button from "../components/Button";
+import Input from "../components/Input";
+import "./Home.css";
 
 const Home = () => {
   const { user } = useContext(UserContext);
@@ -12,7 +15,7 @@ const Home = () => {
 
   const { loginUser, forgotPassword } = useContext(UserContext);
 
-  const navegate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,7 +23,7 @@ const Home = () => {
     try {
       await loginUser(email, password, checked);
       console.log("Sesión iniciada correctamente");
-      navegate("/dashboard");
+      navigate("/profesionales");
     } catch (error) {
       console.log(error);
     }
@@ -30,7 +33,7 @@ const Home = () => {
     try {
       console.log(email);
       await forgotPassword(email);
-      navegate("/");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -48,37 +51,50 @@ const Home = () => {
 
   return (
     <>
-      <h1>Home</h1>
-      <h2>{user ? "online" : "offline"}</h2>
+      <div className="App">
+        <form className="form" onSubmit={handleSubmit}>
+          <h1>PROYECTO MOMED</h1>
+          <div className="group">
+            <Input
+              type="email"
+              placeholder="Usuario"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="group">
+            <Input
+              type="password"
+              placeholder="Contraseña"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="group-two">
+            <div className="group-checkbox">
+              <input
+                type="checkbox"
+                checked={checked}
+                onChange={() => setChecked(!checked)}
+              />
+              <label for="recuerdame">Recordarme</label>
+            </div>
+            <div>
+              <button
+                className="btn-clear"
+                type="reset"
+                onClick={handleForgotPassword}
+              >
+                Recuperar contraseña
+              </button>
+            </div>
+          </div>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Usuario"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <label>
-          <input
-            type="checkbox"
-            checked={checked}
-            onChange={() => setChecked(!checked)}
-          />
-          <p>Recordarme</p>
-        </label>
-        <button type="reset" onClick={handleForgotPassword}>
-          Recuperar contraseña
-        </button>
-
-        <button type="submit">Iniciar sesión</button>
-      </form>
+          <Button className="btn" type="submit">
+            Iniciar sesión
+          </Button>
+        </form>
+      </div>
     </>
   );
 };

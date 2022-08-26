@@ -1,0 +1,126 @@
+.row{
+    display: flex; 
+    gap: 20px;
+    max-width: 800px;
+  }
+  
+  .row ul{
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .row ul li{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    padding-bottom: 5px;
+  }
+  .row ul li .key{
+    width: 178px !important; 
+    font-weight: bold; 
+  }
+  .row ul li .value{
+    width: 250px; 
+  }
+  .row ul li .value.green{
+    color: green;
+    text-transform: uppercase;
+  }
+  .col.first ul li .key{
+    width: 140px !important;
+  }
+  .col.first{
+    width: 44%
+  }
+  .col{
+    width: 50%
+  }
+  
+  /* TABLE COMPONENT */
+  
+  section.cont-table{
+    border: 1px solid #ddd;
+    border-radius: 10px; 
+    overflow: hidden; 
+    overflow-x: auto;
+  }
+  table{
+    width: 100%;
+    border-collapse: collapse;
+  }
+  table thead{
+    border-radius: 20px;
+  }
+  table thead th {
+    background-color: #344054;
+    color: #ffffff;
+    padding: 10px 0;
+    font-weight: 300;
+  }
+  table tbody tr{
+    border-bottom: 1px solid #ddd;
+  }
+  table tbody tr:last-child{
+    border-bottom: none;
+  }
+  table thead th,
+  table tbody td{
+    text-align: left;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  table thead th p{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+  table tbody td .actions{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  /* table tbody td .actions a, */
+  table tbody td .actions button
+  {
+    color: #344054;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+  table tbody td .estatus > span{
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: gray;
+    border-radius: 50%;
+  }
+
+  table tbody td .estatus > span.enproceso{
+    background: orange;
+  }
+  table tbody td .estatus > span.facturado{
+    background: green;
+  }
+
+  /* BUSCADOR */
+
+  .group-input-icon {
+    position: relative;
+  }
+
+  .group-input-icon:before {
+    position: absolute;
+    content: "search";
+    font-family:  'Material Symbols Outlined';
+    z-index: 3;
+    top: 8px;
+    left: 15px;
+  }
+  .group-input-icon input{
+    padding-left: 40px;
+  }

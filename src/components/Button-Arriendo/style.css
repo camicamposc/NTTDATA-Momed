@@ -1,0 +1,18 @@
+.button-arriendo{
+    display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+  width: 98px;
+  height: 36px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  color:black;
+  position: absolute;
+  top: 44px;
+  right: 30px;
+  border-color: #101828;
+  }

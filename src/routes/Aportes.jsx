@@ -1,7 +1,12 @@
+import NotView from "../components/not-view/NotView";
+import PageTemplate from "./Template";
+
 const Aportes = () => {
   return (
     <>
-      <h1>Aportes</h1>
+      <PageTemplate>
+        <NotView />
+      </PageTemplate>
     </>
   );
 };

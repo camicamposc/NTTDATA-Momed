@@ -1,7 +1,14 @@
+import NotView from "../components/not-view/NotView";
+import Table from "../components/table/Table";
+import PageTemplate from "./Template";
+
 const Mantenedores = () => {
+  const infoTableTemp = [];
   return (
     <>
-      <h1>Mantenedores</h1>
+      <PageTemplate>
+        <NotView />
+      </PageTemplate>
     </>
   );
 };

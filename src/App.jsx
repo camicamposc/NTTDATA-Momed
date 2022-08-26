@@ -12,50 +12,58 @@ import RequireAuth from "./components/RequireAuth";
 import { useContext } from "react";
 import { UserContext } from "./context/UserProvider";
 
+import { SetData } from "./context/SetData";
+
 const App = () => {
   const { user } = useContext(UserContext);
   if (user === false) {
-    return <p>Loading...</p>;
+    return (
+      <div class="loader">
+        <div class="custom-loader"></div>
+        <p>Cargando...</p>;
+      </div>
+    );
   }
   return (
     <>
-      <Navbar></Navbar>
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
+      <SetData>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
 
-        <Route
-          path="/dashboard"
-          element={
-            <RequireAuth>
-              <Dashboard />
-            </RequireAuth>
-          }
-        ></Route>
-        <Route
-          path="/aportes"
-          element={
-            <RequireAuth>
-              <Aportes />
-            </RequireAuth>
-          }
-        ></Route>
-        <Route
-          path="/mantenedores"
-          element={
-            <RequireAuth>
-              <Mantenedores />
-            </RequireAuth>
-          }
-        ></Route>
-        <Route
-          path="/profesionales"
-          element={
-            <RequireAuth>
-              <Profesionales />
-            </RequireAuth>
-          }
-        ></Route>
-      </Routes>
+          <Route
+            path="/dashboard"
+            element={
+              <RequireAuth>
+                <Dashboard />
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="/aportes"
+            element={
+              <RequireAuth>
+                <Aportes />
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="/mantenedores"
+            element={
+              <RequireAuth>
+                <Mantenedores />
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="/profesionales"
+            element={
+              <RequireAuth>
+                <Profesionales />
+              </RequireAuth>
+            }
+          ></Route>
+        </Routes>
+      </SetData>
     </>
   );
 };
